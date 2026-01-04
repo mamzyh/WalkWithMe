@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Show Messages</title>
+    <style>
+        table { width: 60%; border-collapse: collapse; }
+        th, td { border: 1px solid black; padding: 6px; }
+    </style>
+</head>
+<body>
+    <h1>Messages</h1>
+    <table>
+        <thead>
+            <tr><th>Date</th><th>Time</th><th>Title</th><th>Message</th></tr>
+        </thead>
+        <tbody>
+            {% for message in message_list %}
+            <tr>
+                <td>{{ message.log_date|date:"d M Y" }}</td>
+                <td>{{ message.log_date|time:"H:i:s" }}</td>
+                <td>{{ message.title }}</td>
+                <td>{{ message.message }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
